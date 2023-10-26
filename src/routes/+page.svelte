@@ -1,5 +1,22 @@
 <script lang="ts">
 	import { get_years, get_days, get_solutions, get_solution } from 'rust';
+
+	import input from '$lib/input';
+
+	interface Solution {
+		value: string;
+		time: number;
+	}
+
+	function run_solution(year: number, day: number, solution: number, input: string): Solution {
+		const start = performance.now();
+		const value = get_solution(year, day + 1, solution + 1, input);
+		const end = performance.now();
+		return {
+			value,
+			time: end - start
+		};
+	}
 </script>
 
 <ul>
@@ -11,9 +28,10 @@
 					<li>
 						{day + 1}
 						<ul>
-							{#each Array(get_solutions(year, day + 1)) as _, solution}
+							{#each Array(get_solutions(year, day + 1)) as _, s}
+								{@const solution = run_solution(year, day, s, input)}
 								<li>
-									{solution + 1}: {get_solution(year, day + 1, solution + 1, 'input')}
+									{s + 1}: got {solution.value} in {solution.time}ms
 								</li>
 							{/each}
 						</ul>

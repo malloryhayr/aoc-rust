@@ -2,7 +2,7 @@ pub mod solutions;
 pub mod utils;
 
 use solutions::year_2022;
-use utils::{unimplemented_day, unimplemented_solution, Year};
+use utils::{unimplemented_solution, Year, UNIMPLEMENTED_DAY};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -17,7 +17,7 @@ pub fn get_years() -> Vec<i32> {
 
 fn get_year(year: i32) -> Result<&'static Year, JsError> {
     match year {
-        2022 => Ok(&year_2022::year),
+        2022 => Ok(&year_2022::YEAR),
         _ => Err(JsError::new("Year not found")),
     }
 }
@@ -31,7 +31,7 @@ pub fn get_days(year: i32) -> Result<usize, JsError> {
     let day_data = year_data.days;
     let mut days: i32 = 0;
     for i in 0..24 {
-        if day_data[i] != unimplemented_day {
+        if day_data[i] != UNIMPLEMENTED_DAY {
             days += 1;
         }
     }
@@ -57,7 +57,11 @@ pub fn get_solutions(year: i32, day: i32) -> Result<usize, JsError> {
             solutions += 1;
         }
     }
-    Ok(solutions as usize)
+    Ok(days[(day as usize) - 1]
+        .solutions
+        .iter()
+        .filter(|x| **x != unimplemented_solution)
+        .count())
 }
 
 #[wasm_bindgen]

@@ -22,7 +22,7 @@ pub struct Day {
     pub solutions: [fn(String) -> String; 2],
 }
 
-pub static unimplemented_day: Day = Day {
+pub static UNIMPLEMENTED_DAY: Day = Day {
     day: -1,
     solutions: [unimplemented_solution, unimplemented_solution],
 };
