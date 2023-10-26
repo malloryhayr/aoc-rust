@@ -1,6 +1,6 @@
 use std::cmp;
 
-use crate::utils::{unimplemented_solution, Day};
+use crate::utils::Day;
 
 fn get_all_counts(input: String) -> Vec<i32> {
     let count_groups = input.split("\n\n");
