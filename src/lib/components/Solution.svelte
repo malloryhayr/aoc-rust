@@ -1,10 +1,7 @@
 <script lang="ts">
-	import { get_solution } from 'rust';
+	import type { Solution } from '$lib/types';
 
-	interface Solution {
-		value: string;
-		time: number;
-	}
+	import { get_solution } from 'rust';
 
 	async function run_solution(
 		year: number,
