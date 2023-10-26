@@ -1,6 +1,8 @@
 pub mod solutions;
 pub mod utils;
 
+use std::time::{Duration, Instant};
+
 use solutions::year_2022;
 use utils::{unimplemented_solution, Year, UNIMPLEMENTED_DAY};
 use wasm_bindgen::prelude::*;
@@ -78,6 +80,8 @@ pub fn get_solution(year: i32, day: i32, solution: i32, input: String) -> Result
         Err(e) => return Err(e),
     };
     let day_data = year_data.days[(day - 1) as usize];
+
     let solution_fn = day_data.solutions[(solution - 1) as usize];
+
     Ok(solution_fn(input))
 }
