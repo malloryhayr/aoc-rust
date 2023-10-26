@@ -1,7 +1,7 @@
 import type { PageLoad } from './$types';
 import init from 'rust';
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageLoad = async () => {
 	await init();
 
 	return {};

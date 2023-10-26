@@ -26,7 +26,7 @@
 {#await solution_task}
 	<span>running solution {solution_num}</span>
 {:then solution}
-	<span>got {solution.value} in {solution.time}ms</span>
+	<span>got {solution.value} in {Math.ceil(solution.time * 1000)}µs</span>
 {:catch error}
 	<span>an error occurred running solution {solution_num}: {error}</span>
 {/await}
