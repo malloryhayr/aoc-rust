@@ -1,6 +1,8 @@
 pub mod solutions;
 pub mod utils;
 
+use std::time::Instant;
+
 use solutions::year_2022;
 use utils::{unimplemented_solution, Year, UNIMPLEMENTED_DAY};
 use wasm_bindgen::prelude::*;
@@ -51,12 +53,6 @@ pub fn get_solutions(year: i32, day: i32) -> Result<usize, JsError> {
         Ok(year) => year.days,
         Err(e) => return Err(e),
     };
-    let mut solutions: i32 = 0;
-    for i in 0..1 {
-        if days[(day as usize) - 1].solutions[i] != unimplemented_solution {
-            solutions += 1;
-        }
-    }
     Ok(days[(day as usize) - 1]
         .solutions
         .iter()

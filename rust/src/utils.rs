@@ -27,6 +27,6 @@ pub static UNIMPLEMENTED_DAY: Day = Day {
     solutions: [unimplemented_solution, unimplemented_solution],
 };
 
-pub fn unimplemented_solution(input: String) -> String {
+pub fn unimplemented_solution(_input: String) -> String {
     String::from("Not yet implemented")
 }

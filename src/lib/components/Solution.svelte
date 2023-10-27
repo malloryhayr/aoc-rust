@@ -28,5 +28,5 @@
 {:then solution}
 	<span>got {solution.value} in {Math.ceil(solution.time * 1000)}µs</span>
 {:catch error}
-	<span>an error occurred running solution {solution_num}: {error}</span>
+	<span>{error}</span>
 {/await}
