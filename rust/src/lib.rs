@@ -1,8 +1,6 @@
 pub mod solutions;
 pub mod utils;
 
-use std::time::Instant;
-
 use solutions::year_2022;
 use utils::{unimplemented_solution, Year, UNIMPLEMENTED_DAY};
 use wasm_bindgen::prelude::*;
