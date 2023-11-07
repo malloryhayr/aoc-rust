@@ -1,4 +1,4 @@
-use crate::utils::{unimplemented_solution, Day};
+use crate::utils::Day;
 
 fn item_to_priority(item: &char) -> u32 {
     if item.is_ascii_uppercase() {

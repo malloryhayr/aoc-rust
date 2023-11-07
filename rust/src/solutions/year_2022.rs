@@ -3,6 +3,7 @@ use crate::utils::{Year, UNIMPLEMENTED_DAY};
 mod day_01;
 mod day_02;
 mod day_03;
+mod day_04;
 
 pub static YEAR: Year = Year {
     year: 2022,
@@ -10,7 +11,7 @@ pub static YEAR: Year = Year {
         day_01::DAY,
         day_02::DAY,
         day_03::DAY,
-        UNIMPLEMENTED_DAY,
+        day_04::DAY,
         UNIMPLEMENTED_DAY,
         UNIMPLEMENTED_DAY,
         UNIMPLEMENTED_DAY,
