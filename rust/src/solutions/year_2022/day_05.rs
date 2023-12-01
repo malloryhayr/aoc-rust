@@ -90,14 +90,17 @@ fn solution_two(input: String) -> String {
         .next()
         .unwrap()
         .split('\n')
-        .filter(|x| !x.contains('0'))
+        .filter(|x| !x.contains('1'))
         .collect();
     stack_input.reverse();
     let mut stacks: [Vec<char>; COLUMNS] = vec![Vec::new(); COLUMNS].try_into().expect("static");
     for c in 0..COLUMNS {
         for l in &stack_input {
             let line = l.to_owned();
-            let item = line.chars().nth((c * 4) + 1).unwrap();
+            let item = match line.chars().nth((c * 4) + 1) {
+                Some(i) => i,
+                None => panic!("Column {}, Line {}", c, l),
+            };
             if item != ' ' && !item.is_numeric() {
                 push(&mut stacks, c, item);
             }
