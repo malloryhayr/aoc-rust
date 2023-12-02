@@ -21,12 +21,19 @@
 	export let year: number, day: number, solution_num: number, input: string;
 
 	let solution_task = run_solution(year, day, solution_num, input);
+
+	function refresh_solution() {
+		solution_task = run_solution(year, day, solution_num, input);
+	}
 </script>
 
 {#await solution_task}
 	<span>running solution {solution_num}</span>
 {:then solution}
-	<span>got {solution.value} in {Math.ceil(solution.time * 1000)}µs</span>
+	<span
+		>got {solution.value} in {Math.ceil(solution.time * 1000)}µs
+		<button on:click={refresh_solution}>refresh</button></span
+	>
 {:catch error}
 	<span>{error}</span>
 {/await}
